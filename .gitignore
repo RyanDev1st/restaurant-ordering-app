@@ -1,0 +1,24 @@
+.env
+.env.*
+*.pem
+.claude/settings.local.json
+.claude/worktrees/
+scratch_*
+__pycache__/
+node_modules/
+dist/
+build/
+
+# Java
+out/
+*.class
+.idea/
+*.iml
+.vscode/
+
+# Local database (recreated from resources/schema.sql + seed.sql on first run)
+*.db
+
+# archify QA receipts (contain local paths)
+*.visual-check.json
+*.visual-check.html
