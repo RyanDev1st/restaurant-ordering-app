@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="740" viewBox="0 0 1120 740"
+     font-family="Arial, Helvetica, sans-serif" font-size="17">
+  <rect width="1120" height="740" fill="#ffffff"/>
+
+  <!-- System boundary -->
+  <rect x="250" y="30" width="620" height="690" fill="#f7f9fc" stroke="#333" stroke-width="2" rx="6"/>
+  <text x="560" y="60" text-anchor="middle" font-size="20" font-weight="bold">Restaurant Ordering App</text>
+
+  <g stroke="#333" stroke-width="1.6" fill="none">
+    <!-- Customer links -->
+    <line x1="135" y1="375" x2="480" y2="110"/>
+    <line x1="135" y1="375" x2="315" y2="265"/>
+    <line x1="135" y1="375" x2="315" y2="340"/>
+    <line x1="135" y1="375" x2="315" y2="415"/>
+    <line x1="135" y1="375" x2="315" y2="490"/>
+    <line x1="135" y1="375" x2="315" y2="565"/>
+    <line x1="135" y1="375" x2="315" y2="640"/>
+    <!-- Staff links -->
+    <line x1="985" y1="345" x2="660" y2="110"/>
+    <line x1="985" y1="345" x2="835" y2="265"/>
+    <line x1="985" y1="345" x2="835" y2="340"/>
+    <line x1="985" y1="345" x2="835" y2="415"/>
+    <line x1="985" y1="345" x2="835" y2="490"/>
+    <!-- Admin links -->
+    <line x1="985" y1="630" x2="835" y2="595"/>
+    <line x1="985" y1="630" x2="835" y2="670"/>
+    <!-- Admin is a kind of Staff (generalization) -->
+    <line x1="1010" y1="446" x2="1010" y2="584"/>
+  </g>
+  <polygon points="1010,428 999,446 1021,446" fill="#fff" stroke="#333" stroke-width="1.6"/>
+
+  <!-- Use cases -->
+  <g fill="#ffffff" stroke="#333" stroke-width="1.8">
+    <ellipse cx="570" cy="110" rx="90" ry="30"/>
+    <ellipse cx="420" cy="265" rx="105" ry="30"/>
+    <ellipse cx="420" cy="340" rx="105" ry="30"/>
+    <ellipse cx="420" cy="415" rx="105" ry="30"/>
+    <ellipse cx="420" cy="490" rx="105" ry="30"/>
+    <ellipse cx="420" cy="565" rx="105" ry="30"/>
+    <ellipse cx="420" cy="640" rx="105" ry="30"/>
+    <ellipse cx="720" cy="265" rx="115" ry="30"/>
+    <ellipse cx="720" cy="340" rx="115" ry="30"/>
+    <ellipse cx="720" cy="415" rx="115" ry="30"/>
+    <ellipse cx="720" cy="490" rx="115" ry="30"/>
+    <ellipse cx="720" cy="595" rx="115" ry="30"/>
+    <ellipse cx="720" cy="670" rx="115" ry="30"/>
+  </g>
+  <g text-anchor="middle" dominant-baseline="central">
+    <text x="570" y="110">Log in</text>
+    <text x="420" y="265">Register</text>
+    <text x="420" y="340">View menu</text>
+    <text x="420" y="415">Search / filter menu</text>
+    <text x="420" y="490">Place order</text>
+    <text x="420" y="565">Track order</text>
+    <text x="420" y="640">Save receipt</text>
+    <text x="720" y="265">View order queue</text>
+    <text x="720" y="340">Update order status</text>
+    <text x="720" y="415">Cancel order</text>
+    <text x="720" y="490">Mark dish sold out</text>
+    <text x="720" y="595">Manage menu</text>
+    <text x="720" y="670">Manage staff accounts</text>
+  </g>
+
+  <!-- Actors: head, body, arms, legs, name -->
+  <g stroke="#333" stroke-width="2" fill="none">
+    <circle cx="110" cy="330" r="14"/>
+    <path d="M110 344 V380 M90 355 H130 M110 380 L92 410 M110 380 L128 410"/>
+    <circle cx="1010" cy="300" r="14"/>
+    <path d="M1010 314 V350 M990 325 H1030 M1010 350 L992 380 M1010 350 L1028 380"/>
+    <circle cx="1010" cy="585" r="14" transform="translate(0,15)"/>
+    <path d="M1010 614 V650 M990 625 H1030 M1010 650 L992 680 M1010 650 L1028 680"/>
+  </g>
+  <g text-anchor="middle" font-weight="bold" font-size="18">
+    <text x="110" y="433">Customer</text>
+    <text x="1010" y="403">Staff</text>
+    <text x="1010" y="703">Admin</text>
+  </g>
+</svg>

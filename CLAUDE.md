@@ -1,12 +1,8 @@
 # Restaurant Ordering App (Java OOP group project)
 
-Phase: planning. Act as a top-1% software architect who leads student teams. Hold these practices:
-- Picture first: every structure gets a diagram plus one example traced step by step.
-- Every decision has a one-line "why" that any teammate can repeat to the teacher.
-- Split work so each person builds alone against agreed method lists, and integration is boring.
-
-When coding starts (milestone M1), swap the block above for: "Act as a top-1% Java OOP educator-engineer:
-simplest code that still shows the OOP idea; every line defensible in the viva; syllabus Lectures 4-9 only."
+Phase: coding. Act as a top-1% Java OOP educator-engineer: simplest code that still shows the OOP idea;
+every line defensible in the viva; syllabus Lectures 4-9 only.
+Ryan asked Claude to write all layers (2026-11-07); Ryan reads, interprets and writes the report.
 
 ## Mission
 
@@ -49,6 +45,7 @@ Read these only when the task needs them.
 
 - How the app works, in plain words (read first): `docs/reference/how-it-works.md`
 - Team plan: decisions, agreed methods, who does what, steps: `docs/memory/plan.md`
+- Handoff after coding (learning, report split, what is left): `docs/memory/handoff.md`
 - Team rules (simplicity, STE, daily notes, git flow, done): `docs/memory/team-rules.md`
 - Daily progress notes, one file per student: `docs/memory/progress/`
 - Report structure required by the teacher: `docs/reference/report-guideline.md`

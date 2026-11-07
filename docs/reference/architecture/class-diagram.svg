@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1120" viewBox="0 0 1880 1120" font-family="Arial, Helvetica, sans-serif" fill="#111">
+<rect width="1880" height="1120" fill="#fff"/>
+<text x="40" y="30" font-size="16" text-anchor="start" fill="#555" font-weight="bold">Package model</text>
+<rect x="290" y="50" width="380" height="264" fill="#eef2fa" stroke="#333" stroke-width="2"/>
+<text x="480.0" y="74" text-anchor="middle" font-size="14">«abstract»</text>
+<text x="480.0" y="96" text-anchor="middle" font-size="18" font-weight="bold" font-style="italic">User</text>
+<line x1="290" y1="106" x2="670" y2="106" stroke="#333" stroke-width="1.5"/>
+<text x="300" y="130" font-size="15">- id : int</text>
+<text x="300" y="152" font-size="15">- username : String</text>
+<text x="300" y="174" font-size="15">- password : String</text>
+<text x="300" y="196" font-size="15">- fullName : String</text>
+<line x1="290" y1="210" x2="670" y2="210" stroke="#333" stroke-width="1.5"/>
+<text x="300" y="234" font-size="15"># User(id, username, password, fullName)</text>
+<text x="300" y="256" font-size="15" font-style="italic">+ getRole() : Role</text>
+<text x="300" y="278" font-size="15" font-style="italic">+ canManageMenu() : boolean</text>
+<text x="300" y="300" font-size="15">+ toString() : String</text>
+<rect x="730" y="50" width="220" height="154" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="840.0" y="74" text-anchor="middle" font-size="14">«enumeration»</text>
+<text x="840.0" y="96" text-anchor="middle" font-size="18" font-weight="bold">Role</text>
+<line x1="730" y1="106" x2="950" y2="106" stroke="#333" stroke-width="1.5"/>
+<text x="740" y="130" font-size="15">CUSTOMER</text>
+<text x="740" y="152" font-size="15">STAFF</text>
+<text x="740" y="174" font-size="15">ADMIN</text>
+<line x1="730" y1="188" x2="950" y2="188" stroke="#333" stroke-width="1.5"/>
+<path d="M670,130 H726" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M717.4,136.1 L730,130 L717.4,123.9" fill="none" stroke="#333" stroke-width="2"/>
+<text x="700" y="122" font-size="13" text-anchor="middle" fill="#111" font-style="italic">uses</text>
+<rect x="40" y="420" width="430" height="154" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="255.0" y="444" text-anchor="middle" font-size="18" font-weight="bold">Staff</text>
+<line x1="40" y1="454" x2="470" y2="454" stroke="#333" stroke-width="1.5"/>
+<text x="50" y="478" font-size="15">- position : String</text>
+<line x1="40" y1="492" x2="470" y2="492" stroke="#333" stroke-width="1.5"/>
+<text x="50" y="516" font-size="15">+ Staff(id, username, password, fullName, position)</text>
+<text x="50" y="538" font-size="15">+ getRole() : Role</text>
+<text x="50" y="560" font-size="15">+ canManageMenu() : boolean</text>
+<rect x="520" y="420" width="430" height="154" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="735.0" y="444" text-anchor="middle" font-size="18" font-weight="bold">Customer</text>
+<line x1="520" y1="454" x2="950" y2="454" stroke="#333" stroke-width="1.5"/>
+<text x="530" y="478" font-size="15">- phone : String</text>
+<line x1="520" y1="492" x2="950" y2="492" stroke="#333" stroke-width="1.5"/>
+<text x="530" y="516" font-size="15">+ Customer(id, username, password, fullName, phone)</text>
+<text x="530" y="538" font-size="15">+ getRole() : Role</text>
+<text x="530" y="560" font-size="15">+ canManageMenu() : boolean</text>
+<rect x="40" y="680" width="430" height="132" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="255.0" y="704" text-anchor="middle" font-size="18" font-weight="bold">Admin</text>
+<line x1="40" y1="714" x2="470" y2="714" stroke="#333" stroke-width="1.5"/>
+<line x1="40" y1="730" x2="470" y2="730" stroke="#333" stroke-width="1.5"/>
+<text x="50" y="754" font-size="15">+ Admin(id, username, password, fullName, position)</text>
+<text x="50" y="776" font-size="15">+ getRole() : Role</text>
+<text x="50" y="798" font-size="15">+ canManageMenu() : boolean</text>
+<path d="M255,420 V370 H450 V352" fill="none" stroke="#333" stroke-width="2"/>
+<polygon points="450,334 439,352 461,352" fill="#fff" stroke="#333" stroke-width="2"/>
+<path d="M735,420 V370 H510 V352" fill="none" stroke="#333" stroke-width="2"/>
+<polygon points="510,334 499,352 521,352" fill="#fff" stroke="#333" stroke-width="2"/>
+<path d="M255,680 V594" fill="none" stroke="#333" stroke-width="2"/>
+<polygon points="255,576 244,594 266,594" fill="#fff" stroke="#333" stroke-width="2"/>
+<rect x="1060" y="50" width="470" height="418" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="1295.0" y="74" text-anchor="middle" font-size="18" font-weight="bold">Order</text>
+<line x1="1060" y1="84" x2="1530" y2="84" stroke="#333" stroke-width="1.5"/>
+<text x="1070" y="108" font-size="15">- id : int</text>
+<text x="1070" y="130" font-size="15">- customerId : int</text>
+<text x="1070" y="152" font-size="15">- tableNumber : int</text>
+<text x="1070" y="174" font-size="15">- status : OrderStatus</text>
+<text x="1070" y="196" font-size="15">- createdAt : LocalDateTime</text>
+<text x="1070" y="218" font-size="15">- items : List&lt;OrderItem&gt;  {final}</text>
+<line x1="1060" y1="232" x2="1530" y2="232" stroke="#333" stroke-width="1.5"/>
+<text x="1070" y="256" font-size="15">+ Order(customerId, tableNumber)</text>
+<text x="1070" y="278" font-size="15">+ Order(id, customerId, tableNumber, status, createdAt)</text>
+<text x="1070" y="300" font-size="15">+ addItem(item : MenuItem) : void</text>
+<text x="1070" y="322" font-size="15">+ addItem(item : MenuItem, qty : int) : void</text>
+<text x="1070" y="344" font-size="15">+ addItem(line : OrderItem) : void</text>
+<text x="1070" y="366" font-size="15">+ getItems() : List&lt;OrderItem&gt;</text>
+<text x="1070" y="388" font-size="15">+ getTotal() : int</text>
+<text x="1070" y="410" font-size="15">+ isEmpty() : boolean</text>
+<text x="1070" y="432" font-size="15">+ setStatus(status : OrderStatus) : void</text>
+<text x="1070" y="454" font-size="15">+ toString() : String</text>
+<rect x="1620" y="50" width="220" height="220" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="1730.0" y="74" text-anchor="middle" font-size="14">«enumeration»</text>
+<text x="1730.0" y="96" text-anchor="middle" font-size="18" font-weight="bold">OrderStatus</text>
+<line x1="1620" y1="106" x2="1840" y2="106" stroke="#333" stroke-width="1.5"/>
+<text x="1630" y="130" font-size="15">PENDING</text>
+<text x="1630" y="152" font-size="15">PREPARING</text>
+<text x="1630" y="174" font-size="15">READY</text>
+<text x="1630" y="196" font-size="15">SERVED</text>
+<text x="1630" y="218" font-size="15">CANCELLED</text>
+<line x1="1620" y1="232" x2="1840" y2="232" stroke="#333" stroke-width="1.5"/>
+<text x="1630" y="256" font-size="15">+ next() : OrderStatus</text>
+<path d="M1530,160 H1616" fill="none" stroke="#333" stroke-width="2"/>
+<path d="M1607.4,166.1 L1620,160 L1607.4,153.9" fill="none" stroke="#333" stroke-width="2"/>
+<text x="1575" y="152" font-size="14" text-anchor="middle" fill="#111">1</text>
+<rect x="1620" y="360" width="220" height="132" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="1730.0" y="384" text-anchor="middle" font-size="18" font-weight="bold">DiningTable</text>
+<line x1="1620" y1="394" x2="1840" y2="394" stroke="#333" stroke-width="1.5"/>
+<text x="1630" y="418" font-size="15">- number : int</text>
+<text x="1630" y="440" font-size="15">- seats : int</text>
+<line x1="1620" y1="454" x2="1840" y2="454" stroke="#333" stroke-width="1.5"/>
+<text x="1630" y="478" font-size="15">+ DiningTable(number, seats)</text>
+<path d="M1530,410 H1620" fill="none" stroke="#333" stroke-width="2"/>
+<text x="1575" y="402" font-size="13" text-anchor="middle" fill="#111" font-style="italic">for table</text>
+<text x="1540" y="430" font-size="15" text-anchor="start" fill="#111">*</text>
+<text x="1605" y="430" font-size="14" text-anchor="start" fill="#111">1</text>
+<path d="M950,432 H1060" fill="none" stroke="#333" stroke-width="2"/>
+<text x="1005" y="424" font-size="13" text-anchor="middle" fill="#111" font-style="italic">places</text>
+<text x="960" y="452" font-size="14" text-anchor="start" fill="#111">1</text>
+<text x="1045" y="452" font-size="15" text-anchor="start" fill="#111">*</text>
+<rect x="1060" y="560" width="470" height="220" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="1295.0" y="584" text-anchor="middle" font-size="18" font-weight="bold">OrderItem</text>
+<line x1="1060" y1="594" x2="1530" y2="594" stroke="#333" stroke-width="1.5"/>
+<text x="1070" y="618" font-size="15">- menuItem : MenuItem</text>
+<text x="1070" y="640" font-size="15">- quantity : int</text>
+<text x="1070" y="662" font-size="15">- unitPrice : int</text>
+<line x1="1060" y1="676" x2="1530" y2="676" stroke="#333" stroke-width="1.5"/>
+<text x="1070" y="700" font-size="15">+ OrderItem(menuItem, quantity)</text>
+<text x="1070" y="722" font-size="15">+ OrderItem(menuItem, quantity, unitPrice)</text>
+<text x="1070" y="744" font-size="15">+ getSubtotal() : int</text>
+<text x="1070" y="766" font-size="15">+ toString() : String</text>
+<polygon points="1295,468 1286,482 1295,496 1304,482" fill="#333"/>
+<path d="M1295,496 V560" fill="none" stroke="#333" stroke-width="2"/>
+<text x="1310" y="492" font-size="14" text-anchor="start" fill="#111">1</text>
+<text x="1310" y="553" font-size="14" text-anchor="start" fill="#111">1..*  items</text>
+<rect x="1060" y="860" width="470" height="242" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="1295.0" y="884" text-anchor="middle" font-size="18" font-weight="bold">MenuItem</text>
+<line x1="1060" y1="894" x2="1530" y2="894" stroke="#333" stroke-width="1.5"/>
+<text x="1070" y="918" font-size="15">- id : int</text>
+<text x="1070" y="940" font-size="15">- name : String</text>
+<text x="1070" y="962" font-size="15">- category : Category</text>
+<text x="1070" y="984" font-size="15">- price : int</text>
+<text x="1070" y="1006" font-size="15">- available : boolean</text>
+<line x1="1060" y1="1020" x2="1530" y2="1020" stroke="#333" stroke-width="1.5"/>
+<text x="1070" y="1044" font-size="15">+ MenuItem(id, name, category, price, available)</text>
+<text x="1070" y="1066" font-size="15">+ isAvailable() : boolean</text>
+<text x="1070" y="1088" font-size="15">+ toString() : String</text>
+<path d="M1295,780 V856" fill="none" stroke="#333" stroke-width="2"/>
+<path d="M1288.9,847.4 L1295,860 L1301.1,847.4" fill="none" stroke="#333" stroke-width="2"/>
+<text x="1310" y="850" font-size="14" text-anchor="start" fill="#111">1</text>
+<rect x="1620" y="860" width="220" height="176" fill="#ffffff" stroke="#333" stroke-width="2"/>
+<text x="1730.0" y="884" text-anchor="middle" font-size="14">«enumeration»</text>
+<text x="1730.0" y="906" text-anchor="middle" font-size="18" font-weight="bold">Category</text>
+<line x1="1620" y1="916" x2="1840" y2="916" stroke="#333" stroke-width="1.5"/>
+<text x="1630" y="940" font-size="15">MAIN</text>
+<text x="1630" y="962" font-size="15">DRINK</text>
+<text x="1630" y="984" font-size="15">DESSERT</text>
+<text x="1630" y="1006" font-size="15">SIDE</text>
+<line x1="1620" y1="1020" x2="1840" y2="1020" stroke="#333" stroke-width="1.5"/>
+<path d="M1530,940 H1616" fill="none" stroke="#333" stroke-width="2"/>
+<path d="M1607.4,946.1 L1620,940 L1607.4,933.9" fill="none" stroke="#333" stroke-width="2"/>
+<text x="1575" y="932" font-size="14" text-anchor="start" fill="#111">1</text>
+<rect x="520" y="760" width="480" height="330" fill="#fafafa" stroke="#bbb" stroke-dasharray="4 3"/>
+<text x="536" y="790" font-size="16" text-anchor="start" fill="#111" font-weight="bold">How to read this diagram</text>
+<path d="M540,830 H590" fill="none" stroke="#333" stroke-width="2"/>
+<polygon points="608,830 590,819 590,841" fill="#fff" stroke="#333" stroke-width="2"/>
+<text x="624" y="835" font-size="15" text-anchor="start" fill="#111">is a kind of (inheritance)</text>
+<path d="M540,870 H580" fill="none" stroke="#333" stroke-width="2"/>
+<polygon points="608,870 594,861 580,870 594,879" fill="#333"/>
+<text x="624" y="875" font-size="15" text-anchor="start" fill="#111">owns; the part dies with the whole</text>
+<path d="M540,910 H604" fill="none" stroke="#333" stroke-width="2"/>
+<path d="M595.4,916.1 L608,910 L595.4,903.9" fill="none" stroke="#333" stroke-width="2"/>
+<text x="624" y="915" font-size="15" text-anchor="start" fill="#111">has a link to</text>
+<path d="M540,950 H604" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="7 5"/>
+<path d="M595.4,956.1 L608,950 L595.4,943.9" fill="none" stroke="#333" stroke-width="2"/>
+<text x="624" y="955" font-size="15" text-anchor="start" fill="#111">uses</text>
+<text x="540" y="992" font-size="15" text-anchor="start" fill="#111">-  private</text>
+<text x="660" y="992" font-size="15" text-anchor="start" fill="#111">+  public</text>
+<text x="780" y="992" font-size="15" text-anchor="start" fill="#111">#  protected</text>
+<text x="540" y="1020" font-size="15" text-anchor="start" fill="#111">Italic = abstract (no body here; children write it).</text>
+<text x="540" y="1046" font-size="15" text-anchor="start" fill="#111">1, *, 1..* = how many objects on that side.</text>
+<text x="540" y="1072" font-size="15" text-anchor="start" fill="#111">Getters and setters are not drawn (see Table 5).</text>
+</svg>

@@ -14,3 +14,6 @@ staff prepare the orders, and an admin runs the menu. The data is saved in SQLit
 javac -d out -cp "lib/*" $(find src -name '*.java')
 java -cp "out;lib/*" app.Main
 ```
+
+The first run creates `restaurant.db` with sample data. Delete that file to start fresh.
+Demo logins (made-up): customer `lan` / `lan123`, staff `hung` / `staff123`, admin `admin` / `admin123`.

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520"
+     font-family="Arial, Helvetica, sans-serif">
+  <rect width="900" height="520" fill="#ffffff"/>
+  <g fill="#ffffff" stroke="#333" stroke-width="2">
+    <rect x="330" y="30" width="240" height="80" fill="#eef2fa"/>
+    <rect x="90" y="230" width="240" height="64"/>
+    <rect x="570" y="230" width="240" height="64"/>
+    <rect x="570" y="420" width="240" height="64"/>
+  </g>
+  <!-- generalization lines: child to parent, hollow triangle at the parent -->
+  <g stroke="#333" stroke-width="2" fill="none">
+    <path d="M210 230 V170 H410 V132"/>
+    <path d="M690 230 V170 H490 V132"/>
+    <path d="M690 420 V316"/>
+  </g>
+  <g fill="#ffffff" stroke="#333" stroke-width="2">
+    <polygon points="410,112 398,132 422,132"/>
+    <polygon points="490,112 478,132 502,132"/>
+    <polygon points="690,296 678,316 702,316"/>
+  </g>
+  <g text-anchor="middle" font-size="26" font-weight="bold" fill="#111">
+    <text x="450" y="58" font-size="17" font-weight="normal">«abstract»</text>
+    <text x="450" y="92" font-style="italic">User</text>
+    <text x="210" y="271">Customer</text>
+    <text x="690" y="271">Staff</text>
+    <text x="690" y="461">Admin</text>
+  </g>
+</svg>

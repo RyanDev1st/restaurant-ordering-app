@@ -12,8 +12,12 @@
 
 - `docs/memory/plan.md`: team plan: decisions, layers, agreed methods, who does what, steps, demo
 - `docs/memory/team-rules.md`: how we work together: simplicity, STE, daily notes, git, "done"
+- `docs/memory/handoff.md`: code is done; who learns which layer, interview questions, who writes what, what is left
 - `docs/memory/progress/`: daily progress notes, one file per student (newest on top)
 - `docs/memory/model-routing.md`: worker model choice and fallbacks
 - `docs/reference/how-it-works.md`: the 3 layers and one click traced step by step, in plain words
 - `docs/reference/report-guideline.md`: teacher's required report sections, condensed
+- `docs/reference/report-a1-skeleton.md`: fill-in skeleton for Assignment 1 (sections I, II.1, start of II.2)
+- `docs/reference/report-a2-skeleton.md`: fill-in skeleton for Assignment 2 (class design, the blue sections)
+- `docs/reference/report/section-I-introduction.docx`: Section I in the teacher's Word format (role table, use case diagram)
 - `docs/reference/architecture/`: architecture diagram of the app (drawn from plan.md)

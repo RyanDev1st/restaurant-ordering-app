@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-25
-review_by: 2026-11-24
+updated: 2026-11-07
+review_by: 2026-12-07
 ---
 
 # Restaurant Ordering App: team plan
@@ -63,14 +63,14 @@ Most of our effort goes into the customer and staff parts. The admin part stays 
 
 ```
 src/app/        Main.java
-src/model/      User, Customer, Staff, Admin, MenuItem, Order, OrderItem, Role, Category, OrderStatus
+src/model/      User, Customer, Staff, Admin, MenuItem, Order, OrderItem, DiningTable, Role, Category, OrderStatus
 src/database/   Database<T>, DatabaseConnection, DatabaseSetup,
                 UserDatabase, MenuItemDatabase, OrderDatabase, DiningTableDatabase
 src/service/    AuthService, MenuService, OrderService, ReceiptWriter, ValidationException, AuthException
 src/ui/         LoginFrame, RegisterDialog, MenuFrame, CartDialog, OrderStatusFrame,
                 StaffOrdersFrame, AdminMenuFrame, AdminStaffFrame
 resources/      schema.sql (creates the tables), seed.sql (sample data)
-lib/            sqlite-jdbc-<version>.jar (lets Java talk to SQLite)
+lib/            sqlite-jdbc-3.42.0.1.jar (lets Java talk to SQLite; newer versions also need slf4j)
 ```
 
 ## 5. Model classes (Student 2 writes them, all of us check them)
@@ -81,14 +81,19 @@ lib/            sqlite-jdbc-<version>.jar (lets Java talk to SQLite)
 | `Customer` | extends `User` | phone number | gives its own `getRole()`. `canManageMenu()` returns false. |
 | `Staff` | extends `User` | job title | gives its own `getRole()`. `canManageMenu()` returns false. |
 | `Admin` | extends `Staff` | nothing extra | gives its own `getRole()`. `canManageMenu()` returns true. |
-| `MenuItem` | class | id, name, category, price, available or sold out | its own `toString()` |
-| `Order` | class | id, customer, table number, status, time, list of `OrderItem` | `addItem(MenuItem)` and `addItem(MenuItem, int qty)`: same name, different inputs (**overloading**). `getTotal()`. |
+| `MenuItem` | class | id, name, category, price (an `int` in VND), available or sold out | its own `toString()` |
+| `Order` | class | id, customer id, table number, status, time, list of `OrderItem` | `addItem(MenuItem)`, `addItem(MenuItem, int qty)`, `addItem(OrderItem)`: same name, different inputs (**overloading**). `getTotal()`. |
 | `OrderItem` | class | dish, quantity, price at the time of the order | `getSubtotal()` |
+| `DiningTable` | class | number, seats | getters |
 | `Role` | enum | CUSTOMER, STAFF, ADMIN | |
 | `Category` | enum | MAIN, DRINK, DESSERT, SIDE | |
 | `OrderStatus` | enum | PENDING, PREPARING, READY, SERVED, CANCELLED | `next()` gives the next step |
 
-That is 7 classes and 3 enums. The teacher's guideline asks for 5 to 7 classes, with 10 at most.
+That is 8 classes and 3 enums. The teacher's guideline asks for 5 to 7 classes, with 10 at most
+(the enums are not counted as classes).
+A setter throws `IllegalArgumentException` when a value is wrong. The service catches it and throws a
+`ValidationException`. Why: `model` must not depend on `service`.
+Full member list: `docs/reference/report-a2-skeleton.md`, Table 5.
 
 ## 6. Database tables (Student 3): 5 tables
 
@@ -134,8 +139,8 @@ A database class can have more methods if it needs them, for example
 
 | Service | Methods |
 | --- | --- |
-| `AuthService` | `User login(String username, String password)`, `Customer register(...)` |
-| `MenuService` | `List<MenuItem> getAvailableItems()`, `getByCategory(Category)`, `search(String)`, `addItem`, `updateItem`, `deleteItem`, `setAvailable(int id, boolean)` |
+| `AuthService` | `User login(String username, String password)`, `Customer register(...)`, `List<Staff> getStaff()`, `Staff addStaff(...)`, `void removeStaff(int id)` |
+| `MenuService` | `List<MenuItem> getAvailableItems()`, `getAllItems()` (admin sees sold-out dishes too), `getByCategory(Category)`, `search(String)`, `addItem(name, category, price)`, `updateItem(id, name, category, price)`, `deleteItem(int id)`, `setAvailable(int id, boolean)` |
 | `OrderService` | `Order placeOrder(Customer, int table, List<OrderItem> cart)`, `List<Order> getQueue()`, `List<Order> getOrdersOf(Customer)`, `void advanceStatus(int orderId)`, `void cancel(int orderId)` |
 | `ReceiptWriter` | `void save(Order order, File file)` writes the receipt to a .txt file (Lecture 6: files) |
 
