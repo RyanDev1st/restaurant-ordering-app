@@ -91,9 +91,9 @@ The tables are already filled in. Check them against the code, then write the pa
 
 | Report part | Writer | Starts from |
 | --- | --- | --- |
-| A2: II.2 end (inheritance, abstract), III.1 to III.4 (classes, abstract classes, overloading, overriding, inheritance) | Student 2 | skeleton sections II.2 to III.4, `class-diagram.png` |
-| A2: III.5 3-tier model, III.6 package design | Student 3 | skeleton III.5 and III.6, `package-design.png` |
-| A2: III.7 access control | Student 1 | skeleton III.7 |
+| A2: II.2 fix (add DiningTable to Table 4), III.1 classes, III.2 abstract classes | Student 2 (Minh) | skeleton II.2 to III.2, `class-diagram.png` |
+| A2: III.3 overloading and overriding, III.4 inheritance | Student 3 (Kien) | skeleton III.3 and III.4 |
+| A2: III.5 3-tier model, III.6 package design, III.7 access control | Student 1 (Khang) | skeleton III.5 to III.7, `package-design.png` |
 | A2: putting it in Word, checking format, submitting | Ryan | Times New Roman 13, justified, figures numbered |
 | Final: Database (ERD, list of tables), Environment and tools | Student 3 | `resources/schema.sql` |
 | Final: GUI (at least 4 screenshots, each button and what it does) | Student 1 | run the app and take screenshots |
