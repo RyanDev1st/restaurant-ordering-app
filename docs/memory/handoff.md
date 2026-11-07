@@ -41,9 +41,9 @@ everyone must be able to trace one click through all 3 layers.
 
 | Student | Layer | Read in this order | Lines |
 | --- | --- | --- | --- |
-| 1 (Ryan) | screens, `ui` | `LoginFrame` (start here), `MenuFrame`, `CartDialog`, `StaffOrdersFrame`, then the other 4 | ~700 |
-| 2 | model + logic, `model` `service` `app` | `User`, `Staff`, `Admin`, `Customer`, `Order`, `OrderItem`, `MenuItem`, the 3 enums, then `OrderService`, `MenuService`, `AuthService`, `Main` | ~660 |
-| 3 | database, `database` + `resources/` | `Database`, `DatabaseConnection`, `DatabaseSetup`, `MenuItemDatabase`, then `UserDatabase`, `OrderDatabase`, `DiningTableDatabase`, and the 2 `.sql` files | ~620 |
+| 1 (Ryan / Khang) | screens, `ui` | `LoginFrame` (start here), `MenuFrame`, `CartDialog`, `StaffOrdersFrame`, then the other 4 | ~700 |
+| 2 (Kien) | the rules and start-up, `service` + `app` | `OrderService` (start here), `MenuService`, `AuthService`, `ReceiptWriter`, the 2 exceptions, `Main` | ~330 |
+| 3 (Minh) | the data, `model` + `database` + `resources/` | `User`, `Staff`, `Admin`, `Customer`, `Order`, `OrderItem`, `MenuItem`, the 3 enums, then `Database`, `DatabaseConnection`, `MenuItemDatabase`, `OrderDatabase`, the other database classes, and the 2 `.sql` files | ~940 |
 
 Tip: read one file, then explain it out loud to a teammate without looking. If you get stuck, that is the line to study.
 
@@ -65,16 +65,22 @@ Short answers. Say them in your own words.
 - *Why catch `ValidationException` here?* The service throws it when a rule fails. The window shows its message in a pop-up.
 - *Why are the click handlers `private`?* Only this window's own buttons call them.
 
-**Student 2 (model and logic)**
+**Student 2 (Kien: the rules and start-up, `service` and `app`)**
+- *What does `placeOrder` check?* The cart is not empty, every dish is still on sale (read again from the database),
+  and the table exists. If one fails, it throws a `ValidationException`.
+- *How does a served order stop moving?* `OrderStatus.next()` throws an `IllegalStateException` after SERVED.
+  `advanceStatus` catches it and throws a `ValidationException` that the window can show.
+- *Why do setters throw `IllegalArgumentException`, not `ValidationException`?* `model` must not need `service`.
+  The service catches it and throws a `ValidationException` with the same message.
+- *Why is the field type `Database<MenuItem>` in `MenuService`?* It is the interface, so any class that implements it works, even a fake one for testing.
+- *Why are the exceptions checked (they extend `Exception`)?* The compiler forces every window that calls a service to handle them.
+- *What does `Main` do?* It creates the database if needed, then the database classes, then the services, then opens `LoginFrame`.
+
+**Student 3 (Minh: the data, `model` and `database`)**
 - *Why is `User` abstract?* Nobody is "just a user". `getRole()` and `canManageMenu()` have no body in `User`; each child writes its own.
 - *Where is overloading?* `Order.addItem` has 3 versions with different inputs. Also 2 constructors in `Order` and in `OrderItem`.
 - *Where is overriding?* `Admin.canManageMenu()` replaces the `false` from `Staff` with `true`. Also every `toString()`.
 - *Why does `OrderItem` copy the price?* So a later price change does not change old orders and receipts.
-- *Why do setters throw `IllegalArgumentException`, not `ValidationException`?* `model` must not need `service`.
-  The service catches it and throws a `ValidationException` with the same message.
-- *Why is the field type `Database<MenuItem>` in `MenuService`?* It is the interface, so any class that implements it works, even a fake one for testing.
-
-**Student 3 (database)**
 - *Why `PreparedStatement`?* The values go in through `?` marks, never by joining strings. This stops SQL injection.
 - *What is the transaction in `OrderDatabase.insert`?* `setAutoCommit(false)`, save the order and every line, then `commit()`.
   If anything fails, `rollback()` undoes it all. We never get an order with half its lines.
@@ -91,11 +97,12 @@ The tables are already filled in. Check them against the code, then write the pa
 
 | Report part | Writer | Starts from |
 | --- | --- | --- |
-| A2: II.2 fix (add DiningTable to Table 4), III.1 classes, III.2 abstract classes | Student 2 (Minh) | skeleton II.2 to III.2, `class-diagram.png` |
-| A2: III.3 overloading and overriding, III.4 inheritance | Student 3 (Kien) | skeleton III.3 and III.4 |
+| A2: II.2 fix (add DiningTable to Table 4), III.1 classes, III.2 abstract classes | Student 3 (Minh) | skeleton II.2 to III.2, `class-diagram.png` |
+| A2: III.3 overloading and overriding, III.4 inheritance | Student 2 (Kien) | skeleton III.3 and III.4 |
 | A2: III.5 3-tier model, III.6 package design, III.7 access control | Student 1 (Khang) | skeleton III.5 to III.7, `package-design.png` |
 | A2: putting it in Word, checking format, submitting | Ryan | Times New Roman 13, justified, figures numbered |
-| Final: Database (ERD, list of tables), Environment and tools | Student 3 | `resources/schema.sql` |
+| Final: Database (ERD, list of tables) | Student 3 (Minh) | `resources/schema.sql` |
+| Final: Environment and tools | Student 2 (Kien) | everyone's PC details |
 | Final: GUI (at least 4 screenshots, each button and what it does) | Student 1 | run the app and take screenshots |
 | Final: Encapsulation vs Inheritance vs Polymorphism | everyone, one example each | section 3 above |
 | Final: Conclusion, duty roster | Ryan | progress notes |
@@ -107,7 +114,7 @@ Only Ryan submits. We did not change topic, so we do not send Assignment 1 again
 - [ ] **Everyone:** pull `main` and run the app on your own laptop (section 1). Report any error in the group chat the same day.
 - [ ] **Everyone:** click through the demo in `plan.md` section 11 once. A person has not done this yet; only automatic checks have.
 - [ ] **Everyone:** learn your layer (section 2) and practise the questions (section 3).
-- [ ] **Student 3:** draw the ERD (the diagram of the tables and how they link) from `schema.sql`.
+- [ ] **Student 3 (Minh):** draw the ERD (the diagram of the tables and how they link) from `schema.sql`.
 - [ ] **Student 1:** take the GUI screenshots (at least 4) and list each button and its event.
 - [ ] **Everyone:** write down your PC (CPU, RAM, operating system, Java version). The Environment section needs it.
 - [ ] **Everyone:** keep the daily progress note, including the "AI used" line. The report needs it.

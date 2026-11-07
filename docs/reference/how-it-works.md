@@ -1,6 +1,6 @@
 ---
-updated: 2026-10-25
-review_by: 2026-11-24
+updated: 2026-11-07
+review_by: 2026-12-07
 ---
 
 # How the app works
@@ -18,9 +18,9 @@ Full size: `architecture/tiers.html`
 The app is split into three layers, and each student owns one:
 
 1. **Screens (Student 1).** The Swing windows. They show things and react to clicks. They contain no rules and no SQL.
-2. **Logic (Student 2).** The service classes. They check the rules ("is the cart empty?") and work out
+2. **Logic (Student 2, Kien).** The service classes. They check the rules ("is the cart empty?") and work out
    things like the total price.
-3. **Database access (Student 3).** The database classes (`UserDatabase`, `MenuItemDatabase`, `OrderDatabase`). They are the only place where we write SQL.
+3. **Database access (Student 3, Minh).** The database classes (`UserDatabase`, `MenuItemDatabase`, `OrderDatabase`). They are the only place where we write SQL.
 
 Each layer only talks to the layer next to it. A window never reads the database directly. It asks a
 service, the service asks a database class, and that class runs the SQL.
@@ -53,10 +53,10 @@ Every feature in the app works this way. If you understand this one click, you u
 | Student | Layer | Builds | Hands to the others |
 | --- | --- | --- | --- |
 | 1 (Ryan, lead) | Screens | wireframes, Swing windows, error pop-ups | the screen designs |
-| 2 | Logic | the `model` classes, the services, the exceptions | the list of service methods |
-| 3 | Database access | the tables, the SQL scripts, the database classes | the list of their methods |
+| 2 (Kien) | Logic | the services, the exceptions, `Main` | the list of service methods |
+| 3 (Minh) | Database access and data | the `model` classes, the tables, the SQL scripts, the database classes | the list of their methods |
 
-Student 2 writes the `model` classes first, because all three layers use them.
+The `model` classes were written first, because all three layers use them. The code is now done; see `docs/memory/handoff.md`.
 
 How we work together (simple code, plain English, a daily progress note, pull requests) is in
 `docs/memory/team-rules.md`. The short version is pinned on the diagram above.

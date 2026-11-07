@@ -46,7 +46,7 @@ Most of our effort goes into the customer and staff parts. The admin part stays 
  (ui)                  (service)               (database)                 (one SQLite file)
      \                     |                        /
       \---------->   MODEL CLASSES (model)   <-----/
-                     used by all 3 layers
+                     used by all 3 layers, owned by Student 3
 ```
 
 - **Screens** call service methods only. They never contain SQL.
@@ -55,7 +55,7 @@ Most of our effort goes into the customer and staff parts. The admin part stays 
 - **Database access** runs SQL only. It turns table rows into model objects, and model objects into rows.
   It has no rules and no windows.
 - **Model classes** are simple classes that hold data, for example `MenuItem` and `Order`.
-  All three layers use them, so Student 2 writes them first (step M1 in section 10).
+  All three layers use them, so they were written first (step M1 in section 10).
 - **`app.Main`** starts the app. It creates the database if it is missing, then creates the database
   classes and the services, and then opens the login window.
 
@@ -73,7 +73,7 @@ resources/      schema.sql (creates the tables), seed.sql (sample data)
 lib/            sqlite-jdbc-3.42.0.1.jar (lets Java talk to SQLite; newer versions also need slf4j)
 ```
 
-## 5. Model classes (Student 2 writes them, all of us check them)
+## 5. Model classes (Student 3 owns them, all of us check them)
 
 | Class | Type | What it holds | What it does |
 | --- | --- | --- | --- |
@@ -135,7 +135,7 @@ A database class can have more methods if it needs them, for example
 `OrderDatabase.insert` saves the order and all its items together. If one part fails, it saves nothing
 (this is called a **transaction**).
 
-**Between screens and logic.** Student 2 writes these methods. Student 1 calls them from the windows.
+**Between screens and logic.** Student 2 owns these methods. Student 1 calls them from the windows.
 
 | Service | Methods |
 | --- | --- |
@@ -174,33 +174,38 @@ The teacher will ask about these, so we want each topic in a place that is easy 
 
 ## 9. Who does what
 
-**Student 1 (Ryan, team lead): screens, package `ui`**
-- Draw the wireframes (rough sketches of each screen) for the 8 windows first. Share them before anyone codes the screens.
-- Build the Swing windows. The windows call services only. When a service throws an exception, show its message in a pop-up.
-- After login, open the right window: customers go to `MenuFrame`, staff to `StaffOrdersFrame`, admins to `AdminMenuFrame`.
-- Report sections: Introduction (table of users, use case diagram), GUI (4 or more screenshots), Conclusion.
-- As lead: look after the `main` branch, check and merge every pull request, and keep the duty roster.
+The code is already written (7 Nov 2026). Each person now **owns** one part: you learn it well enough to
+explain every line in the interview, and you write the report sections about it.
+The reading order and likely interview questions are in `docs/memory/handoff.md`.
 
-**Student 2: logic, packages `model`, `service` and `app`**
-- Write the model classes first and get them approved (step M1), because everyone needs them.
-- Write the services with all the rules: login check, cart check, total price, order steps, and admin-only actions.
-- Until the real database classes are ready, use a fake one that keeps data in a list:
-  `FakeMenuItemDatabase implements Database<MenuItem>`. This is also a good interview example of why interfaces help.
-- Report sections: Class Analysis, Class Design, abstract classes, overloading and overriding, access control tables.
+**Student 1 (Ryan / Khang, team lead): screens, packages `ui`**
+- Owns the 8 Swing windows. Start with `LoginFrame`: after login it opens the right window
+  (customers go to `MenuFrame`, staff to `StaffOrdersFrame`, admins to `AdminMenuFrame`).
+- Assignment 2: III.5 the 3-tier model, III.6 package design, III.7 access control. Puts the report together and submits it.
+- Final report: Introduction, GUI (4 or more screenshots, each button and its event), Conclusion, duty roster.
+- As lead: look after the `main` branch and keep the Google Doc tabs tidy.
 
-**Student 3: database access, package `database`, plus `resources/` and `lib/`**
-- Draw the ERD (the diagram of the tables and how they link). Write `schema.sql` and `seed.sql`.
-  Download the SQLite driver jar into `lib/`.
-- Write `DatabaseConnection` (the database address lives here only), `DatabaseSetup` (creates the tables
-  on the first run) and the 4 database classes.
-- Always use `PreparedStatement`. Never build SQL by joining strings together. This stops SQL injection,
-  and the teacher will probably ask about it.
-- Report sections: Database (ERD, list of tables), Environment and Tools, Package Design.
+**Student 2 (Kien): the rules and the start-up, packages `service` and `app`**
+- Owns the services (`AuthService`, `MenuService`, `OrderService`, `ReceiptWriter`), the two exceptions, and `Main`.
+- Must explain: every rule and the exception it throws, why `MenuService` holds a `Database<MenuItem>` (the interface),
+  and how `Main` connects the 3 layers.
+- Assignment 2: III.3 overloading and overriding, III.4 inheritance.
+- Final report: Environment and tools.
 
-**Everyone:** For the section on encapsulation, inheritance and polymorphism, use examples from your own code.
+**Student 3 (Minh): the data, packages `model` and `database`, plus `resources/` and `lib/`**
+- Owns the data objects (`User`, `Customer`, `Staff`, `Admin`, `MenuItem`, `Order`, `OrderItem`, `DiningTable`, the 3 enums)
+  and the database code that saves them (`DatabaseConnection`, `DatabaseSetup`, the 4 database classes, `schema.sql`, `seed.sql`).
+- Must explain: inheritance and the abstract `User`, why `PreparedStatement` stops SQL injection,
+  and the transaction in `OrderDatabase.insert`.
+- Assignment 2: add `DiningTable` to Table 4, III.1 classes, III.2 abstract classes.
+- Final report: Database (ERD, the list of tables).
+
+**Everyone:** For the section on encapsulation, inheritance and polymorphism, use examples from your own part.
 Also learn section 7, so you can explain how your part connects to the others.
 
 ## 10. Steps and checkpoints
+
+Steps M1 to M4 are done: the code was written in one go on 7 Nov 2026. M5 is what is left.
 
 | Step | What we deliver | Who | Done when |
 | --- | --- | --- | --- |

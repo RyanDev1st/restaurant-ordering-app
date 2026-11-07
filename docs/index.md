@@ -17,5 +17,5 @@ A Java OOP group project for 3 students. Customers order food, staff prepare the
 ## Daily progress notes
 
 - [Student 1: Ryan (screens)](memory/progress/s1-ryan.html)
-- [Student 2: logic](memory/progress/s2-logic.html)
-- [Student 3: database access](memory/progress/s3-database.html)
+- [Student 2: Kien (logic)](memory/progress/s2-logic.html)
+- [Student 3: Minh (data and database)](memory/progress/s3-database.html)
